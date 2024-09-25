@@ -73,7 +73,7 @@ jobs:
 
     - name: Initialize Elastic Beanstalk (if needed)
       run: |
-        eb init -p python-3.12 customerservice-app --region ${{ secrets.AWS_REGION }}  # Use your region and app name
+        eb init -p python-3.12 customerservice-app --region us-east-1
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
