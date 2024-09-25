@@ -31,8 +31,8 @@ class OrderViewSet(viewsets.ModelViewSet):
 AT_username = config('AT_username')
 AT_apiKey =   config('AT_apiKey')
 
-# print(f"Username: {AT_username}")
-# print(f"API Key: {AT_apiKey}")
+print(f"Username: {AT_username}")
+print(f"API Key: {AT_apiKey}")
 
 africastalking.initialize(AT_username, AT_apiKey)
 
