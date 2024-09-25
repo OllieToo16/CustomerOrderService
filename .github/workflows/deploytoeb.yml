@@ -53,7 +53,7 @@ jobs:
     - name: Set Up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.12
+        python-version: 3.11
   
     - name: Install dependencies
       run: |
@@ -73,7 +73,7 @@ jobs:
 
     - name: Initialize Elastic Beanstalk (if needed)
       run: |
-        eb init -p python-3.12 customerservice-app --region us-east-1
+        eb init -p python-3.11 customerservice-app --region us-east-1
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
