@@ -1,12 +1,3 @@
-# from django.shortcuts import render
-# def customer_lists(request):
-#     customers = [
-#         {'name' : 'Toma Shelby'},
-#         {'name' : 'Will Smith'},
-#     ]
-#     return render(request, 'customer_list.html', {'customers': customers})
-
-# Create your views here.
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from oauth2_provider.contrib.rest_framework import OAuth2Authentication
@@ -14,6 +5,8 @@ from .models import Customer, Order
 from .serializers import CustomerSerializer, OrderSerializer
 import africastalking
 from decouple import config
+
+# Create your views here.
 
 class CustomerViewSet(viewsets.ModelViewSet):
     queryset = Customer.objects.all()
@@ -36,14 +29,13 @@ print(f"API Key: {AT_apiKey}")
 
 africastalking.initialize(AT_username, AT_apiKey)
 
-# africastalking.initialize(os.environ.get('AT_username'),os.environ.get('AT_apiKey'))
 sms = africastalking.SMS
 
 def send_sms(phone_number, message):
     try:
          
         response = sms.send(message,[phone_number])
-        print(f"SMS Response: {response}")  # Print the response to check
+        print(f"SMS Response: {response}")  # Printing the response to check
         return response
     except Exception as e:
         print(f"Error sending SMS: {e}")
@@ -56,7 +48,7 @@ class OrderViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         order = serializer.save()
         customer = order.customer
-        print(f"Sending SMS to: {customer.phone_number}")  # Print the phone number for debugging
+        print(f"Sending SMS to: {customer.phone_number}")  # Printing the phone number for debugging
         response = send_sms(customer.phone_number, f"Order {order.item} created with amount {order.amount}")
         print(f"SMS API Response: {response}")
         
