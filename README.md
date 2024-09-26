@@ -50,6 +50,26 @@ pip install python-decouple
 AT_username=<your_africastallking_username>
 AT_apiKey=<your_africastalking_api_key>
 ```
+# Run the application
+```
+python manage.py migrate
+python manage.py runserver
+```
+# API Endpoints
+# Customer API
+* POST /CustomerApp/customers/: Create a new customer
+* GET /CustomerApp/customers/: Get a list of customers
+  ![image](https://github.com/user-attachments/assets/a46b14c0-db87-4bc7-a5d9-671dedb8e44c)
+
+* GET /CustomerApp/customers/{id}/: Get details of a specific customer
+  
+# Order API
+* POST /CustomerApp/orders/: Create a new order
+* GET /CustomerApp/orders/: Get a list of orders
+  ![image](https://github.com/user-attachments/assets/70462f66-2f41-4752-a9ec-fd9451ab5ae9)
+
+* GET /CustomerApp/orders/{id}/: Get details of a specific order
+
 # Implementing Authentication with OAuth2 and OpenID Connect
 * To protect the API using OpenID Connect for authentication:
 * Install django-oidc-provider or use a library like django-allauth that supports OpenID Connect.
@@ -75,25 +95,6 @@ pip install django-oauth-toolkit
   # Access token for authentication
   Acess_token=<your_access_token>
   ```
-# Run the application
-```
-python manage.py migrate
-python manage.py runserver
-```
-# API Endpoints
-# Customer API
-* POST /CustomerApp/customers/: Create a new customer
-* GET /CustomerApp/customers/: Get a list of customers
-  ![image](https://github.com/user-attachments/assets/a46b14c0-db87-4bc7-a5d9-671dedb8e44c)
-
-* GET /CustomerApp/customers/{id}/: Get details of a specific customer
-# Order API
-* POST /CustomerApp/orders/: Create a new order
-* GET /CustomerApp/orders/: Get a list of orders
-  ![image](https://github.com/user-attachments/assets/70462f66-2f41-4752-a9ec-fd9451ab5ae9)
-
-* GET /CustomerApp/orders/{id}/: Get details of a specific order
-
 # Testing
 * Run Unit Tests with Coverage
   ```
