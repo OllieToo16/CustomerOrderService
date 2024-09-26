@@ -58,13 +58,19 @@ jobs:
 
     - name: Deploy to Elastic Beanstalk
       run: |
-        zip -r customerservice-app.zip .  # Zip the application files
-        aws elasticbeanstalk create-application-version \
-          --application-name ${{ secrets.EB_APP_NAME }} \
-          --version-label v1 \
-          --source-bundle S3Bucket=customerservice-app,S3Key=customerservice-app.zip
+        eb deploy
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-        aws elasticbeanstalk update-environment \
-          --application-name ${{ secrets.EB_APP_NAME }} \
-          --environment-name ${{ secrets.EB_ENV_NAME }} \
-          --version-label v1
+        
+        # zip -r customerservice-app.zip .  # Zip the application files
+        # aws elasticbeanstalk create-application-version \
+        #   --application-name ${{ secrets.EB_APP_NAME }} \
+        #   --version-label v1 \
+        #   --source-bundle S3Bucket=customerservice-app,S3Key=customerservice-app.zip
+
+        # aws elasticbeanstalk update-environment \
+        #   --application-name ${{ secrets.EB_APP_NAME }} \
+        #   --environment-name ${{ secrets.EB_ENV_NAME }} \
+        #   --version-label v1
