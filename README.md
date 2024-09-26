@@ -61,7 +61,11 @@ pip install django-oauth-toolkit
   python manage.py createsuperuser
   ```
 * Login to the Django Admin using the credentials created
+  ![image](https://github.com/user-attachments/assets/224472d3-b230-4043-adbf-2b3fca776c8f)
+
 * Add an application and copy the client ID and client secret which you will use to get the access token
+  ![image](https://github.com/user-attachments/assets/cdce279e-ba69-4e0b-a9e6-15b51c71e959)
+
 * Go to your root directory of the project and get the access token using the following command:
 ```
   curl -X POST -d "grant_type=password&username=<your_username>&password=<password_created>&client_id=<Your_client_ID>&client_secret=<your_client_secret_id" http://localhost:8000/o/token/
@@ -96,7 +100,7 @@ python manage.py runserver
   python -m coverage run manage.py test
   python -m coverage report
   ```
-  # Deployment
+# Deployment
   * Deploy to AWS Elastic Beanstalk
 The project includes a GitHub Actions workflow to automatically deploy changes to AWS Elastic Beanstalk. Ensure you have set the following secrets in your GitHub repository:
   * AWS_ACCESS_KEY_ID
