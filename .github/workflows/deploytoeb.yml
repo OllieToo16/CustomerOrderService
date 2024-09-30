@@ -52,7 +52,7 @@ jobs:
     - name: Initialize Elastic Beanstalk (if needed)
       run: |
         eb init -p python-3.11 ${{ secrets.EB_APP_NAME }} --region us-east-1
-        eb use ${{ secrets.EB_ENV_NAME }}
+        eb create ${{ secrets.EB_ENV_NAME }}
 
     - name: Deploy to Elastic Beanstalk
       run: |
