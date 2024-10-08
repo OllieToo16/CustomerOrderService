@@ -120,7 +120,18 @@ eb create customerservice-env
 eb deploy
 ```
 * Upon successfully triggering the GitHub Actions workflow, the changes will be automatically deployed to Elastic Beanstalk as demonstrated below.
+  
 ![Screenshot 2024-10-07 132801](https://github.com/user-attachments/assets/493e1b1f-0ee2-4a11-a1a4-db3df79421bb)
+
+* In your settings.py file add the following URLs and CNAME to the ALLOWED_HOSTS list to ensure the application can properly handle incoming requests:
+  
+  ```
+    ALLOWED_HOSTS = [
+      'customerorder-service-dev.us-east-1.elasticbeanstalk.com',
+      'localhost',
+      '127.0.0.1'
+            ]
+    ```
 
 # SMS Alerts
 * When an order is placed, an SMS notification is sent to the customer using the Africa's Talking API.As illustrated below:
