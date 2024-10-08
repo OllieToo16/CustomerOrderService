@@ -119,6 +119,9 @@ eb init -p python-3.11 customerservice-app --region <your-region>
 eb create customerservice-env
 eb deploy
 ```
+* Upon successfully triggering the GitHub Actions workflow, the changes will be automatically deployed to Elastic Beanstalk as demonstrated below.
+![Screenshot 2024-10-07 132801](https://github.com/user-attachments/assets/493e1b1f-0ee2-4a11-a1a4-db3df79421bb)
+
 # SMS Alerts
 * When an order is placed, an SMS notification is sent to the customer using the Africa's Talking API.As illustrated below:
   ![image](https://github.com/user-attachments/assets/d434ffb0-dd11-48fc-889d-696f08809b8f)
